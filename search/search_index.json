@@ -1,0 +1,99 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to cryptoclock docs site\n\n\nFor main site visit \nwww.cryptoclock.net\n.\n\n\nModels\n\n\nThis is the list of current and planed models\n\n\n\n\n3DA0100\n - 32x8 LED matrix with ESP8266 in plastic enclosure\n\n\nDPA0200\n - LED panel matrix with ESP32", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-cryptoclock-docs-site", 
+            "text": "For main site visit  www.cryptoclock.net .", 
+            "title": "Welcome to cryptoclock docs site"
+        }, 
+        {
+            "location": "/#models", 
+            "text": "This is the list of current and planed models   3DA0100  - 32x8 LED matrix with ESP8266 in plastic enclosure  DPA0200  - LED panel matrix with ESP32", 
+            "title": "Models"
+        }, 
+        {
+            "location": "/3DA0100/", 
+            "text": "3DA0100 - 32x8 LED matrix with ESP8266 in plastic enclosure\n\n\nFeatures\n\n\n\n\nlarge led matrix\n\n\nwi-fi", 
+            "title": "About"
+        }, 
+        {
+            "location": "/3DA0100/#3da0100-32x8-led-matrix-with-esp8266-in-plastic-enclosure", 
+            "text": "", 
+            "title": "3DA0100 - 32x8 LED matrix with ESP8266 in plastic enclosure"
+        }, 
+        {
+            "location": "/3DA0100/#features", 
+            "text": "large led matrix  wi-fi", 
+            "title": "Features"
+        }, 
+        {
+            "location": "/3DA0100/menu/", 
+            "text": "OTP\n\n\nInfo\n\n\nFont\n\n\nBright\n\n\nRotate\n\n\nClock\n\n\nTzone", 
+            "title": "Menu"
+        }, 
+        {
+            "location": "/3DA0100/menu/#otp", 
+            "text": "", 
+            "title": "OTP"
+        }, 
+        {
+            "location": "/3DA0100/menu/#info", 
+            "text": "", 
+            "title": "Info"
+        }, 
+        {
+            "location": "/3DA0100/menu/#font", 
+            "text": "", 
+            "title": "Font"
+        }, 
+        {
+            "location": "/3DA0100/menu/#bright", 
+            "text": "", 
+            "title": "Bright"
+        }, 
+        {
+            "location": "/3DA0100/menu/#rotate", 
+            "text": "", 
+            "title": "Rotate"
+        }, 
+        {
+            "location": "/3DA0100/menu/#clock", 
+            "text": "", 
+            "title": "Clock"
+        }, 
+        {
+            "location": "/3DA0100/menu/#tzone", 
+            "text": "", 
+            "title": "Tzone"
+        }, 
+        {
+            "location": "/3DA0100/firmware/", 
+            "text": "Updates\n\n\nFirmware updates itself upon every device boot if necessary. Please do not interrupt the update process, even if the \"UPDATING\" sign will stop rotating.\n\n\nFactory reset\n\n\nPlease press the button for about 10 seconds. All settings including wi-fi passwords will be erased and new device's UUID will be generated.\n\n\nFirmware re-flash\n\n\nIf you need to reflash firmware in your device, use following sketch:\n\n\n\n\n\nOr do it manualy:\n\n\n$ curl https://update.cryptoclock.net/esp/update?model=3DA0100 \n 3DA0100.bin\n$ esptool -vv -cd nodemcu -cb 115200 -cp /dev/cu.wchusbserial1420 \\\\\n    -ca 0x00000 -cf 3DA0100.bin", 
+            "title": "Firmware"
+        }, 
+        {
+            "location": "/3DA0100/firmware/#updates", 
+            "text": "Firmware updates itself upon every device boot if necessary. Please do not interrupt the update process, even if the \"UPDATING\" sign will stop rotating.", 
+            "title": "Updates"
+        }, 
+        {
+            "location": "/3DA0100/firmware/#factory-reset", 
+            "text": "Please press the button for about 10 seconds. All settings including wi-fi passwords will be erased and new device's UUID will be generated.", 
+            "title": "Factory reset"
+        }, 
+        {
+            "location": "/3DA0100/firmware/#firmware-re-flash", 
+            "text": "If you need to reflash firmware in your device, use following sketch:   Or do it manualy:  $ curl https://update.cryptoclock.net/esp/update?model=3DA0100   3DA0100.bin\n$ esptool -vv -cd nodemcu -cb 115200 -cp /dev/cu.wchusbserial1420 \\\\\n    -ca 0x00000 -cf 3DA0100.bin", 
+            "title": "Firmware re-flash"
+        }, 
+        {
+            "location": "/3DA0100/wiring/", 
+            "text": "", 
+            "title": "Hardware"
+        }
+    ]
+}
