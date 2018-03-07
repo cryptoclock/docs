@@ -1,0 +1,10 @@
+site_name: cryptoclock docs
+pages:
+- Home: 'index.md'
+- 3DA0100:
+  - About: '3DA0100/index.md'
+  - Menu: '3DA0100/menu.md'
+  - Firmware: '3DA0100/firmware.md'
+  - Hardware: '3DA0100/wiring.md'
+theme:
+  name: 'material'
