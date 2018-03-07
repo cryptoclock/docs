@@ -94,6 +94,61 @@
             "location": "/3DA0100/wiring/", 
             "text": "", 
             "title": "Hardware"
+        }, 
+        {
+            "location": "/websocket/", 
+            "text": "Cryptoclock uses websockets to connect to our servers for data and configuration.\n\n\nEndpoint\n\n\nMain url for our service is\n\n\nwss://ticker.cryptoclock.net\n\n\n\nWe also have staging environment with latest software for testing purposes\n\n\nwss://ticker.staging.cryptoclock.net\n\n\n\nSubscription paths\n\n\nYou can use path in stucture \nsource/pair\n to subscribe for data.\n\n\nEg.\n\n\n$ telsocket wss://ticker.cryptoclock.net/bitfinex/BTCUSD\n\n\n\nWelcome message\n\n\nAfter successfull handshake, server sends welcome message\n\n\n; Welcome client bc353109-5aba-42cf-a62a-4651e04fad43\n\n\n\nThis message includes device's UUID. It is generated upon every connection unless you specify your own UUID.\n\n\nUUID\n\n\nEvery device has it's own UUID, which is used for web configuration and custom subscriptons identification. UUID is generated on every device factory reset.\n\n\nYou can specify your UUID while connecting to websocket server.\n\n\nEg.\n\n\n$ telsocket wss://ticker.cryptoclock.net/bitfinex/BTCUSD?uuid=bc353109-5aba-42cf-a62a-4651e04fad43\n\n\n\nData\n\n\nWebsocket servers sends two types of data.\n\n\nFirst is ticker data. It is sent as plain number.\n\n\nSecond is aditional data. Aditional data line is prefixed with semicolon \n;\n\n\nAditional data\n\n\nHB\n\n\nServer sends periodicaly heartbeat message.\n\n\nEg.\n\n\n;HB\n\n\n\nATH\n\n\nUpon connect, server sends this pair all time high value. This is used for graphical notification on tickers.\n\n\nEg.\n\n\n;ATH=17251\n\n\n\nMSG\n\n\nUser can send one time message to its device. Message is dispayed on display\n\n\nEg.\n\n\n;MSG this is my device\n\n\n\nDevice authentication\n\n\nDevice can be configured via https://www.cryptoclock.net web interface. To do this, you need to authenticate the device.\n\n\nDevice sends \n;OTP_REQ\n to server, server replies with numeric value in \n;OTP=\n\u00a0message. Device then displays this one time password on display and user enters it into website. Successul OTP entry is notified via \n;OTP_ACK\n message.\n\n\nEg.\n\n\n ;OTP_REQ\n\n ;OTP=507127\n\n ;HB\n\n ;HB\n\n ;OTP_ACK", 
+            "title": "Websocket"
+        }, 
+        {
+            "location": "/websocket/#endpoint", 
+            "text": "Main url for our service is  wss://ticker.cryptoclock.net  We also have staging environment with latest software for testing purposes  wss://ticker.staging.cryptoclock.net", 
+            "title": "Endpoint"
+        }, 
+        {
+            "location": "/websocket/#subscription-paths", 
+            "text": "You can use path in stucture  source/pair  to subscribe for data.  Eg.  $ telsocket wss://ticker.cryptoclock.net/bitfinex/BTCUSD", 
+            "title": "Subscription paths"
+        }, 
+        {
+            "location": "/websocket/#welcome-message", 
+            "text": "After successfull handshake, server sends welcome message  ; Welcome client bc353109-5aba-42cf-a62a-4651e04fad43  This message includes device's UUID. It is generated upon every connection unless you specify your own UUID.", 
+            "title": "Welcome message"
+        }, 
+        {
+            "location": "/websocket/#uuid", 
+            "text": "Every device has it's own UUID, which is used for web configuration and custom subscriptons identification. UUID is generated on every device factory reset.  You can specify your UUID while connecting to websocket server.  Eg.  $ telsocket wss://ticker.cryptoclock.net/bitfinex/BTCUSD?uuid=bc353109-5aba-42cf-a62a-4651e04fad43", 
+            "title": "UUID"
+        }, 
+        {
+            "location": "/websocket/#data", 
+            "text": "Websocket servers sends two types of data.  First is ticker data. It is sent as plain number.  Second is aditional data. Aditional data line is prefixed with semicolon  ;", 
+            "title": "Data"
+        }, 
+        {
+            "location": "/websocket/#aditional-data", 
+            "text": "", 
+            "title": "Aditional data"
+        }, 
+        {
+            "location": "/websocket/#hb", 
+            "text": "Server sends periodicaly heartbeat message.  Eg.  ;HB", 
+            "title": "HB"
+        }, 
+        {
+            "location": "/websocket/#ath", 
+            "text": "Upon connect, server sends this pair all time high value. This is used for graphical notification on tickers.  Eg.  ;ATH=17251", 
+            "title": "ATH"
+        }, 
+        {
+            "location": "/websocket/#msg", 
+            "text": "User can send one time message to its device. Message is dispayed on display  Eg.  ;MSG this is my device", 
+            "title": "MSG"
+        }, 
+        {
+            "location": "/websocket/#device-authentication", 
+            "text": "Device can be configured via https://www.cryptoclock.net web interface. To do this, you need to authenticate the device.  Device sends  ;OTP_REQ  to server, server replies with numeric value in  ;OTP= \u00a0message. Device then displays this one time password on display and user enters it into website. Successul OTP entry is notified via  ;OTP_ACK  message.  Eg.   ;OTP_REQ  ;OTP=507127  ;HB  ;HB  ;OTP_ACK", 
+            "title": "Device authentication"
         }
     ]
 }

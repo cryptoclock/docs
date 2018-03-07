@@ -31,20 +31,20 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="./assets/images/favicon.png">
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.7.0">
     
     
       
-        <title>cryptoclock docs</title>
+        <title>Websocket - cryptoclock docs</title>
       
     
     
-      <link rel="stylesheet" href="./assets/stylesheets/application.78aab2dc.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.78aab2dc.css">
       
     
     
-      <script src="./assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#welcome-to-cryptoclock-docs-site" tabindex="1" class="md-skip">
+      <a href="#endpoint" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -98,7 +98,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="." title="cryptoclock docs" class="md-header-nav__button md-logo">
+        <a href=".." title="cryptoclock docs" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -115,7 +115,7 @@
                 cryptoclock docs
               </span>
               <span class="md-header-nav__topic">
-                Home
+                Websocket
               </span>
             
           
@@ -230,49 +230,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Home
-      </label>
-    
-    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
       Home
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#models" title="Models" class="md-nav__link">
-    Models
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -301,7 +263,7 @@
 
 
   <li class="md-nav__item">
-    <a href="3DA0100/" title="About" class="md-nav__link">
+    <a href="../3DA0100/" title="About" class="md-nav__link">
       About
     </a>
   </li>
@@ -313,7 +275,7 @@
 
 
   <li class="md-nav__item">
-    <a href="3DA0100/menu/" title="Menu" class="md-nav__link">
+    <a href="../3DA0100/menu/" title="Menu" class="md-nav__link">
       Menu
     </a>
   </li>
@@ -325,7 +287,7 @@
 
 
   <li class="md-nav__item">
-    <a href="3DA0100/firmware/" title="Firmware" class="md-nav__link">
+    <a href="../3DA0100/firmware/" title="Firmware" class="md-nav__link">
       Firmware
     </a>
   </li>
@@ -337,7 +299,7 @@
 
 
   <li class="md-nav__item">
-    <a href="3DA0100/wiring/" title="Hardware" class="md-nav__link">
+    <a href="../3DA0100/wiring/" title="Hardware" class="md-nav__link">
       Hardware
     </a>
   </li>
@@ -352,11 +314,114 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="websocket/" title="Websocket" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Websocket
+      </label>
+    
+    <a href="./" title="Websocket" class="md-nav__link md-nav__link--active">
       Websocket
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#endpoint" title="Endpoint" class="md-nav__link">
+    Endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscription-paths" title="Subscription paths" class="md-nav__link">
+    Subscription paths
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome-message" title="Welcome message" class="md-nav__link">
+    Welcome message
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuid" title="UUID" class="md-nav__link">
+    UUID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data" title="Data" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aditional-data" title="Aditional data" class="md-nav__link">
+    Aditional data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hb" title="HB" class="md-nav__link">
+    HB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ath" title="ATH" class="md-nav__link">
+    ATH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msg" title="MSG" class="md-nav__link">
+    MSG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device-authentication" title="Device authentication" class="md-nav__link">
+    Device authentication
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -374,15 +439,82 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#models" title="Models" class="md-nav__link">
-    Models
+  <a href="#endpoint" title="Endpoint" class="md-nav__link">
+    Endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscription-paths" title="Subscription paths" class="md-nav__link">
+    Subscription paths
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome-message" title="Welcome message" class="md-nav__link">
+    Welcome message
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuid" title="UUID" class="md-nav__link">
+    UUID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data" title="Data" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aditional-data" title="Aditional data" class="md-nav__link">
+    Aditional data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hb" title="HB" class="md-nav__link">
+    HB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ath" title="ATH" class="md-nav__link">
+    ATH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msg" title="MSG" class="md-nav__link">
+    MSG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device-authentication" title="Device authentication" class="md-nav__link">
+    Device authentication
   </a>
   
 </li>
@@ -403,17 +535,65 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/cryptoclock/docs/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/cryptoclock/docs/edit/master/docs/websocket.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="welcome-to-cryptoclock-docs-site">Welcome to cryptoclock docs site</h1>
-<p>For main site visit <a href="https://www.cryptoclock.net">www.cryptoclock.net</a>.</p>
-<h2 id="models">Models</h2>
-<p>This is the list of current and planed models</p>
-<ul>
-<li><a href="./3DA0100">3DA0100</a> - 32x8 LED matrix with ESP8266 in plastic enclosure</li>
-<li><a href="./DPA0200">DPA0200</a> - LED panel matrix with ESP32</li>
-</ul>
+                  <h1>Websocket</h1>
+                
+                <p>Cryptoclock uses websockets to connect to our servers for data and configuration.</p>
+<h2 id="endpoint">Endpoint</h2>
+<p>Main url for our service is</p>
+<pre><code>wss://ticker.cryptoclock.net
+</code></pre>
+<p>We also have staging environment with latest software for testing purposes</p>
+<pre><code>wss://ticker.staging.cryptoclock.net
+</code></pre>
+<h2 id="subscription-paths">Subscription paths</h2>
+<p>You can use path in stucture <em>source/pair</em> to subscribe for data.</p>
+<p>Eg.</p>
+<pre><code>$ telsocket wss://ticker.cryptoclock.net/bitfinex/BTCUSD
+</code></pre>
+<h2 id="welcome-message">Welcome message</h2>
+<p>After successfull handshake, server sends welcome message</p>
+<pre><code>; Welcome client bc353109-5aba-42cf-a62a-4651e04fad43
+</code></pre>
+<p>This message includes device's UUID. It is generated upon every connection unless you specify your own UUID.</p>
+<h2 id="uuid">UUID</h2>
+<p>Every device has it's own UUID, which is used for web configuration and custom subscriptons identification. UUID is generated on every device factory reset.</p>
+<p>You can specify your UUID while connecting to websocket server.</p>
+<p>Eg.</p>
+<pre><code>$ telsocket wss://ticker.cryptoclock.net/bitfinex/BTCUSD?uuid=bc353109-5aba-42cf-a62a-4651e04fad43
+</code></pre>
+<h2 id="data">Data</h2>
+<p>Websocket servers sends two types of data.</p>
+<p>First is ticker data. It is sent as plain number.</p>
+<p>Second is aditional data. Aditional data line is prefixed with semicolon <em>;</em></p>
+<h2 id="aditional-data">Aditional data</h2>
+<h3 id="hb">HB</h3>
+<p>Server sends periodicaly heartbeat message.</p>
+<p>Eg.</p>
+<pre><code>;HB
+</code></pre>
+<h3 id="ath">ATH</h3>
+<p>Upon connect, server sends this pair all time high value. This is used for graphical notification on tickers.</p>
+<p>Eg.</p>
+<pre><code>;ATH=17251
+</code></pre>
+<h3 id="msg">MSG</h3>
+<p>User can send one time message to its device. Message is dispayed on display</p>
+<p>Eg.</p>
+<pre><code>;MSG this is my device
+</code></pre>
+<h2 id="device-authentication">Device authentication</h2>
+<p>Device can be configured via https://www.cryptoclock.net web interface. To do this, you need to authenticate the device.</p>
+<p>Device sends <em>;OTP_REQ</em> to server, server replies with numeric value in <em>;OTP=</em> message. Device then displays this one time password on display and user enters it into website. Successul OTP entry is notified via <em>;OTP_ACK</em> message.</p>
+<p>Eg.</p>
+<pre><code>&gt; ;OTP_REQ
+&lt; ;OTP=507127
+&lt; ;HB
+&lt; ;HB
+&lt; ;OTP_ACK
+</code></pre>
                 
                   
                 
@@ -432,20 +612,20 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-        
-          <a href="3DA0100/" title="About" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../3DA0100/wiring/" title="Hardware" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  Previous
                 </span>
-                About
+                Hardware
               </span>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
           </a>
+        
         
       </nav>
     </div>
@@ -469,9 +649,9 @@
       
     </div>
     
-      <script src="./assets/javascripts/application.8eb9be28.js"></script>
+      <script src="../assets/javascripts/application.8eb9be28.js"></script>
       
-      <script>app.initialize({version:"0.17.2",url:{base:"."}})</script>
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
       
     
     
