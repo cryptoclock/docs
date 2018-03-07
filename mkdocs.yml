@@ -6,5 +6,7 @@ pages:
   - Menu: '3DA0100/menu.md'
   - Firmware: '3DA0100/firmware.md'
   - Hardware: '3DA0100/wiring.md'
+- Websocket: 'websocket.md'
 theme:
   name: 'material'
+repo_url: https://github.com/cryptoclock/docs/
