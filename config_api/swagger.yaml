@@ -1,0 +1,847 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/channels":
+    get:
+      summary: Channels list
+      tags:
+      - Channels
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Array of all user created channels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/channel_read"
+        '401':
+          description: Authentication failed
+    post:
+      summary: Create new channel
+      tags:
+      - Channels
+      description: Creates a new channel.
+      operationId: createChannel
+      security:
+      - bearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Channel created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/channel_read"
+        '403':
+          description: Forbidden
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/channel_write"
+  "/channels/{uuid}":
+    get:
+      summary: Channel detail
+      tags:
+      - Channels
+      operationId: showChannel
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Single channel detail
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/channel_read_detail"
+    put:
+      summary: Update channel configuration
+      tags:
+      - Channels
+      operationId: updateChannel
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Device updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/channel_read_detail"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/channel_write"
+    delete:
+      summary: Remove channel
+      tags:
+      - Channels
+      operationId: removeChannel
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Channel removed
+  "/channels/{uuid}/publish_number":
+    post:
+      summary: Publish number value
+      tags:
+      - Channels
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Accepted
+        '403':
+          description: Forbidden
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                secret:
+                  type: string
+                  example: 3a5265ca51835e53ec90e
+                content:
+                  type: string
+                  example: '123.4'
+              required:
+              - secret
+              - type
+              - content
+  "/channels/{uuid}/publish_text":
+    post:
+      summary: Publish text value
+      tags:
+      - Channels
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Accepted
+        '403':
+          description: Forbidden
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                secret:
+                  type: string
+                  example: 3a5265ca51835e53ec90e
+                content:
+                  type: string
+                  example: Gooo!
+                duration:
+                  type: string
+                  example: '5'
+              required:
+              - secret
+              - type
+              - content
+  "/channels/{uuid}/broadcast_message":
+    post:
+      summary: Publish message
+      tags:
+      - Channels
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Accepted
+        '403':
+          description: Forbidden
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                secret:
+                  type: string
+                  example: 3a5265ca51835e53ec90e
+                content:
+                  type: string
+                  example: Hello world!
+              required:
+              - secret
+              - type
+              - content
+  "/channels/{uuid}/publish_image":
+    post:
+      summary: Publish image
+      tags:
+      - Channels
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Accepted
+        '403':
+          description: Forbidden
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                secret:
+                  type: string
+                  example: 3a5265ca51835e53ec90e
+                content:
+                  type: string
+                  example: base64-encoded-bmp-image-content
+                duration:
+                  type: string
+                  example: '5'
+              required:
+              - secret
+              - type
+              - content
+  "/devices":
+    get:
+      summary: Device list
+      tags:
+      - Devices
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Array of all user registered devices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/device_read"
+        '401':
+          description: Authentication failed
+    post:
+      summary: Register new device
+      tags:
+      - Devices
+      description: Adds new device to your account. PIN is displayed on device upon
+        OTP call.
+      operationId: registerDevice
+      security:
+      - bearerAuth: []
+      parameters: []
+      responses:
+        '201':
+          description: Device registered
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/device_read"
+        '404':
+          description: Invalid PIN
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pin:
+                  type: string
+                  minlength: 4
+              required:
+              - pin
+  "/devices/{uuid}":
+    get:
+      summary: Device detail
+      tags:
+      - Devices
+      operationId: showDevice
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Single device detail
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/device_read"
+    put:
+      summary: Update device configuration
+      tags:
+      - Devices
+      operationId: updateDevice
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Device updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/device_read"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/device_write"
+    delete:
+      summary: Remove device
+      tags:
+      - Devices
+      operationId: removeDevice
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Device removed
+  "/devices/{uuid}/screen":
+    post:
+      summary: Add new screen to device
+      tags:
+      - Devices
+      - Screens
+      operationId: addScreen
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Screen created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/screen_read"
+  "/devices/{uuid}/restart":
+    post:
+      summary: Restart device
+      tags:
+      - Devices
+      operationId: restartDevice
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Device restart request sent
+        '417':
+          description: Device is offline
+  "/devices/{uuid}/update_firmware":
+    post:
+      summary: Update device firmware
+      tags:
+      - Devices
+      operationId: upgradeDevice
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Update firmware request sent
+        '417':
+          description: Device is offline
+  "/screens/{uuid}":
+    get:
+      summary: Screen detail
+      tags:
+      - Screens
+      operationId: showScreen
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Single screen detail
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/screen_read"
+    put:
+      summary: Update screen configuration
+      tags:
+      - Screens
+      operationId: updateScreen
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Screen updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/screen_read"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/screen_write"
+    delete:
+      summary: Remove screen
+      tags:
+      - Screens
+      operationId: removeScreen
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Screen removed
+  "/screens/{uuid}/screen":
+    post:
+      summary: Create child screen
+      tags:
+      - Screens
+      operationId: createScreen
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Child screen created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/screen_read"
+  "/sources":
+    get:
+      summary: List of sources
+      tags:
+      - Sources
+      responses:
+        '200':
+          description: Array of all sources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/source_without_pairs"
+  "/sources/{slug}":
+    get:
+      summary: Source detail
+      tags:
+      - Sources
+      parameters:
+      - name: slug
+        in: path
+        example: binance
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Source detail with pairs
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/source_with_pairs"
+  "/sources/find_pair?ticker_url={ticker_url}":
+    get:
+      summary: Find source and pair by ticker_url
+      tags:
+      - Sources
+      parameters:
+      - name: ticker_url
+        in: path
+        example: "/binance/btc/usdt"
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  source:
+                    "$ref": "#/components/schemas/source_without_pairs"
+                  pair:
+                    "$ref": "#/components/schemas/pair"
+        '404':
+          description: Not found
+servers:
+- url: https://www.cryptoclock.net/api/v1
+  description: Production server
+- url: https://staging.cryptoclock.net/api/v1
+  description: Staging server
+- url: http://localhost:3000/api/v1
+  description: Local devel server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    channel_read:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: BTC/USD
+    channel_read_detail:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: BTC/USD
+        secret:
+          type: string
+          format: uuid
+        subscribers:
+          type: integer
+    channel_write:
+      type: object
+      properties:
+        name:
+          type: string
+          example: BTC/USD
+        secret:
+          type: string
+          format: uuid
+    screen_read:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        device:
+          type: string
+          format: uuid
+        parent:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: BTC/USD
+        position:
+          type: integer
+        multiplier:
+          type: integer
+          example: 1
+        rolling_ticker_interval:
+          type: integer
+          example: 180
+        ticker_path:
+          type: string
+          example: "/binance/btc/usdt"
+        value_font_color:
+          type: string
+          example: "#RRGGBB"
+        text_font_color:
+          type: string
+          example: "#RRGGBB"
+        value_font_alignment:
+          type: string
+          enum:
+          - left
+          - center
+          - right
+        text_font_alignment:
+          type: string
+          enum:
+          - left
+          - center
+          - right
+        font:
+          type: string
+        screens:
+          type: array
+          items:
+            type: string
+            format: uuid
+            minItems: 0
+        url:
+          type: string
+          format: uri
+          example: "/api/v1/screens/3fa85f64-5717-4562-b3fc-2c963f66afa6"
+      required:
+      - uuid
+      - device
+    screen_write:
+      type: object
+      properties:
+        name:
+          type: string
+          example: BTC/USD
+        position:
+          type: integer
+        multiplier:
+          type: integer
+          example: 1
+        rolling_ticker_interval:
+          type: integer
+          example: 180
+        ticker_path:
+          type: string
+          example: "/binance/btc/usdt"
+        value_font_color:
+          type: string
+          example: "#RRGGBB"
+        text_font_color:
+          type: string
+          example: "#RRGGBB"
+        value_font_alignment:
+          type: string
+          enum:
+          - left
+          - center
+          - right
+        text_font_alignment:
+          type: string
+          enum:
+          - left
+          - center
+          - right
+        font:
+          type: string
+    device_read:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        model:
+          type: string
+          example: 3DA0100
+        name:
+          type: string
+          example: My lovely ticker
+        online:
+          type: boolean
+        brightness:
+          type: integer
+          minimum: 1
+          maximum: 5
+        timezone:
+          type: string
+          format: timezone
+          example: Europe/Prague
+        rotate_display:
+          type: string
+        font:
+          type: string
+        clock_mode:
+          type: integer
+        clock_interval:
+          type: integer
+        ticker_url:
+          type: string
+          format: uri
+          example: wss://ticker.cryptoclock.net
+        update_url:
+          type: string
+          format: uri
+          example: http://update.cryptoclock.net
+        ntp_server:
+          type: string
+          format: hostname
+          example: ntp.nic.cz
+        screens:
+          type: array
+          items:
+            type: string
+            format: uuid
+            minItems: 1
+        url:
+          type: string
+          format: uri
+          example: "/api/v1/devices/3fa85f64-5717-4562-b3fc-2c963f66afa6"
+      required:
+      - uuid
+    device_write:
+      type: object
+      properties:
+        name:
+          type: string
+          example: My lovely ticker
+        brightness:
+          type: integer
+          minimum: 1
+          maximum: 5
+        timezone:
+          type: string
+          format: timezone
+          example: Europe/Prague
+        rotate_display:
+          type: string
+        font:
+          type: string
+        clock_mode:
+          type: integer
+        clock_interval:
+          type: integer
+        ticker_url:
+          type: string
+          format: uri
+          example: wss://ticker.cryptoclock.net
+        update_url:
+          type: string
+          format: uri
+          example: http://update.cryptoclock.net
+        ntp_server:
+          type: string
+          format: hostname
+          example: ntp.nic.cz
+    source_without_pairs:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Binance
+        slug:
+          type: string
+          example: binance
+        type:
+          type: string
+          enum:
+          - crypto
+          - fiat
+          - commodity
+          - stock
+        homepage:
+          type: string
+          example: https://www.binance.com
+      required:
+      - slug
+    source_with_pairs:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Binance
+        slug:
+          type: string
+          example: binance
+        type:
+          type: string
+          enum:
+          - crypto
+          - fiat
+          - commodity
+          - stock
+        homepage:
+          type: string
+          example: https://www.binance.com
+        pairs:
+          type: array
+          items:
+            "$ref": "#/components/schemas/pair"
+    pair:
+      type: object
+      properties:
+        name:
+          type: string
+          example: BTC/USDT
+        base:
+          type: string
+          example: BTC
+        quote:
+          type: string
+          example: USDT
+        ticker_path:
+          type: string
+          example: "/binance/btc/usdt"
+        last_price:
+          type: number
+          format: float
+          example: '58123.99'
