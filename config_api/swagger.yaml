@@ -556,7 +556,7 @@ paths:
 servers:
 - url: https://www.cryptoclock.net/api/v1
   description: Production server
-- url: https://staging.cryptoclock.net/api/v1
+- url: https://www.staging.cryptoclock.net/api/v1
   description: Staging server
 - url: http://localhost:3000/api/v1
   description: Local devel server
