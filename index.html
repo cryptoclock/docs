@@ -413,6 +413,15 @@
 <p><a href="./ticker_api">API for device to server communication (build your own device firmware)</a</p>
 <p><a href="./config_api">API for configuration (configure your devices remotely, push messages)</a></p>
 
+<h2 id="api_start">API Quick start</h2> 
+<ol>
+  <li><a href="http://docs.cryptoclock.net/ticker_api/">connects</a> to websocket server and identifies by self-generated UUID</li>
+  <li>Your ticker device sends <a href="http://docs.cryptoclock.net/ticker_api/#message-OTPRequest">OTPRequest</a> and receives <a href="http://docs.cryptoclock.net/ticker_api/#message-OTP">OTP Password</a></li>
+  <li>Create user account on <a href="https://www.cryptoclock.net">www.cryptoclock.net</a> and get your <a href="https://www.cryptoclock.net/api_keys">API key</a></li>
+  <li>Use received password to <a href="http://docs.cryptoclock.net/config_api/#/Devices/registerDevice">register</a> your device on configuration server</li>
+  <li><a href="http://docs.cryptoclock.net/config_api/#/Screens/addScreen">Set</a> requested data sources</li>
+  <li><a href="http://docs.cryptoclock.net/ticker_api/#message-tick">Receive ticks</a> and display them on device</li>
+</ol>
 
 <h2 id="models">Models</h2>
 <p>This is the list of current and planed models</p>
